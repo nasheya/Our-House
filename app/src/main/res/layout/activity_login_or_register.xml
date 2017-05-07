@@ -33,7 +33,7 @@
             android:textSize="37sp"
             android:layout_gravity="center"
             android:id="@+id/nameLoginRegister"
-            android:textColor="#404040"/>
+            android:textColor="@color/lighterGrey"/>
 
         <Button
             android:layout_width="match_parent"
@@ -44,7 +44,9 @@
             android:gravity="center"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="24dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:backgroundTint="@color/lighterGrey"
+            android:textColor="#ffffff"/>
 
         <Button
             android:layout_width="match_parent"

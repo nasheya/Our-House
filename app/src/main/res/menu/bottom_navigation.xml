@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navHome"
+        android:icon="@drawable/ic_home"
+        android:title="Home"/>
+    <item
+        android:id="@+id/navExpenses"
+        android:icon="@drawable/ic_expenses"
+        android:title="Expenses"/>
+    <item
+        android:id="@+id/navChores"
+        android:icon="@drawable/ic_mop"
+        android:title="Chores"/>
+    <item
+        android:id="@+id/navLists"
+        android:icon="@drawable/ic_list"
+        android:title="Lists"/>
+    <item
+        android:id="@+id/navBoard"
+        android:icon="@drawable/ic_board"
+        android:title="Board"/>
+</menu>
