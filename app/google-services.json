@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "186007594861",
+    "firebase_url": "https://ourhouseroommateapp.firebaseio.com",
+    "project_id": "ourhouseroommateapp",
+    "storage_bucket": "ourhouseroommateapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186007594861:android:ac1a374c3a877642",
+        "android_client_info": {
+          "package_name": "hu.ait.ourhouseroommateapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186007594861-039rbalqrvm8vapoku7d9rd9nj9p5335.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hu.ait.ourhouseroommateapp",
+            "certificate_hash": "266063c1bb7ee0fd107a420f372270f5339b3455"
+          }
+        },
+        {
+          "client_id": "186007594861-nhqckqgmf9kcp31kjaik36mi06cv41hl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgNc0CNF9-j8m4NQR5D66TpdVM1ytGh3U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186007594861-nhqckqgmf9kcp31kjaik36mi06cv41hl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
