@@ -83,4 +83,16 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     public void register(String email, String password, String first, String last){
         registerInFirebase(email, password, first, last);
     }
+
+    public void forgotPassword(String email){
+        firebaseAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            ///do thing here
+                        }
+                    }
+                });
+    }
 }

@@ -3,18 +3,18 @@
 
     <item android:id="@+id/action_about"
         android:icon="@drawable/ic_info"
-        android:title="About Our House" />
+        android:title="@string/nav_about_our_house" />
 
-    <item android:id="@+id/action_switch"
+    <item android:id="@+id/action_manage"
         android:icon="@drawable/ic_swap"
-        android:title="Switch Groups" />
+        android:title="@string/nav_manage_groups" />
 
     <item android:id="@+id/action_settings"
         android:icon="@drawable/ic_settings"
-        android:title="Settings" />
+        android:title="@string/action_settings" />
 
     <item android:id="@+id/action_logout"
         android:icon="@drawable/ic_logout"
-        android:title="Logout" />
+        android:title="@string/nav_logout" />
 
 </menu>

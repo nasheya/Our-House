@@ -1,4 +1,4 @@
-package hu.ait.ourhouseroommateapp;
+package hu.ait.ourhouseroommateapp.ui.login_register;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -10,8 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import hu.ait.ourhouseroommateapp.ui.LoginActivity;
-import hu.ait.ourhouseroommateapp.ui.RegisterActivity;
+import hu.ait.ourhouseroommateapp.R;
 
 public class LoginOrRegisterActivity extends AppCompatActivity {
 
