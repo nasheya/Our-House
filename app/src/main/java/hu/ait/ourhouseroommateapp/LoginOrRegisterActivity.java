@@ -4,15 +4,14 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import hu.ait.ourhouseroommateapp.ui.LoginActivity;
+import hu.ait.ourhouseroommateapp.ui.RegisterActivity;
 
 public class LoginOrRegisterActivity extends AppCompatActivity {
 
