@@ -1,20 +1,16 @@
-package hu.ait.ourhouseroommateapp.ui.login_register;
+package hu.ait.ourhouseroommateapp.groups;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import hu.ait.ourhouseroommateapp.ui.login_register.FragmentCreate;
-import hu.ait.ourhouseroommateapp.ui.login_register.FragmentExisting;
-import hu.ait.ourhouseroommateapp.ui.login_register.FragmentJoin;
-
 /**
  * Created by nasheyarahman on 5/12/17.
  */
 
-public class MyFragmentPager extends FragmentPagerAdapter {
+public class FragmentPagerGroups extends FragmentPagerAdapter {
 
-    public MyFragmentPager(FragmentManager fm) {
+    public FragmentPagerGroups(FragmentManager fm) {
         super(fm);
     }
 

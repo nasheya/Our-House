@@ -21,6 +21,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <EditText
+            android:id="@+id/group_identifier_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/unique_group_identifier"
+            android:maxLines="1" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <AutoCompleteTextView
             android:id="@+id/group_name_create"
             android:layout_width="match_parent"
@@ -53,5 +66,14 @@
         android:textStyle="bold"
         android:textColor="#fff"
         android:backgroundTint="@color/colorPinkIcon"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_group_message"
+        android:textSize="15sp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"/>
 
 </LinearLayout>

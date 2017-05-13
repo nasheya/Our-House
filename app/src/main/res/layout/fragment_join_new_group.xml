@@ -22,10 +22,10 @@
         android:layout_height="wrap_content">
 
         <AutoCompleteTextView
-            android:id="@+id/group_name_join"
+            android:id="@+id/group_ID_join"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/group_name"
+            android:hint="@string/unique_group_identifier"
             android:maxLines="1" />
 
     </android.support.design.widget.TextInputLayout>
@@ -53,5 +53,13 @@
         android:textStyle="bold"
         android:textColor="#fff"
         android:backgroundTint="@color/colorPrimary"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/join_group_message"
+        android:textSize="15sp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"/>
 
 </LinearLayout>

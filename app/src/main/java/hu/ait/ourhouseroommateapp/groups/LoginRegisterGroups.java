@@ -1,6 +1,5 @@
-package hu.ait.ourhouseroommateapp.ui.login_register;
+package hu.ait.ourhouseroommateapp.groups;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +7,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import hu.ait.ourhouseroommateapp.R;
-import hu.ait.ourhouseroommateapp.ui.MainActivity;
 
 public class LoginRegisterGroups extends AppCompatActivity {
 
@@ -23,16 +21,9 @@ public class LoginRegisterGroups extends AppCompatActivity {
         name = (TextView) findViewById(R.id.name_groups);
         name.setTypeface(lemonMilk);
 
-        MyFragmentPager myFragmentPager =
-                new MyFragmentPager(getSupportFragmentManager());
+        FragmentPagerGroups myFragmentPager =
+                new FragmentPagerGroups(getSupportFragmentManager());
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(myFragmentPager);
-    }
-
-    public void navigateToMainScreen() {
-        Intent main = new Intent(this, MainActivity.class);
-        main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(main);
-        finish();
     }
 }

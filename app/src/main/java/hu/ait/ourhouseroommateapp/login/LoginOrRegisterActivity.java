@@ -1,4 +1,4 @@
-package hu.ait.ourhouseroommateapp.ui.login_register;
+package hu.ait.ourhouseroommateapp.login;
 
 import android.content.Intent;
 import android.graphics.Typeface;

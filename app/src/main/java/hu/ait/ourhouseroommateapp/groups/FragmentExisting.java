@@ -1,4 +1,4 @@
-package hu.ait.ourhouseroommateapp.ui.login_register;
+package hu.ait.ourhouseroommateapp.groups;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

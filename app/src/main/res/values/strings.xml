@@ -12,8 +12,9 @@
     <string name="error_exists">This email already exists in the system</string>
     <string name="error_password">Password must be at least 6 characters long</string>
 
-    <string name="group_name">Group Name</string>
+    <string name="group_name">Group Title</string>
     <string name="group_code">Group Code</string>
+    <string name="unique_group_identifier">Group ID Name</string>
     <string name="action_join_group">Join Group</string>
     <string name="join_group_title">Join Existing Group</string>
     <string name="create_new_group_title">Create New Group</string>
@@ -32,5 +33,12 @@
     <string name="nav_manage_groups">Manage Groups</string>
     <string name="nav_about_our_house">About Our House</string>
     <string name="nav_logout">Logout</string>
+    <string name="create_group_message">NOTE: The group ID name must be unique and the group code is for those who want to join your group.</string>
+    <string name="join_group_message">Ask someone for the unique group ID name and code so you can join their group!</string>
+    <string name="ID_taken">This ID is already taken.</string>
+    <string name="invalid_group_name">This group name is not valid</string>
+    <string name="invalid_group_combo_join">This ID and code combination is not recognized</string>
+    <string name="error_heading">Error:</string>
+
 
 </resources>

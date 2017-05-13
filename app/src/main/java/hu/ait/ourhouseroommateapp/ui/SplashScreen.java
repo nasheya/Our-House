@@ -13,7 +13,7 @@ import android.widget.TextView;
 import hu.ait.ourhouseroommateapp.R;
 import hu.ait.ourhouseroommateapp.login.LoginPresenter;
 import hu.ait.ourhouseroommateapp.login.LoginScreen;
-import hu.ait.ourhouseroommateapp.ui.login_register.LoginOrRegisterActivity;
+import hu.ait.ourhouseroommateapp.login.LoginOrRegisterActivity;
 
 public class SplashScreen extends AppCompatActivity implements LoginScreen{
 

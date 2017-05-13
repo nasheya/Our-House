@@ -11,6 +11,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+
+import org.w3c.dom.Text;
 
 import hu.ait.ourhouseroommateapp.R;
 import hu.ait.ourhouseroommateapp.ui.BasicActivity;
@@ -35,6 +40,12 @@ public class MainActivity extends BasicActivity {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        TextView tvEmail = (TextView) navigationView.getHeaderView(0).findViewById(R.id.navHeaderEmail);
+        tvEmail.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+        TextView name = (TextView) navigationView.getHeaderView(0).findViewById(R.id.navHeaderName);
+        name.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

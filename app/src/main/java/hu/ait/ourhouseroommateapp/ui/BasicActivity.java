@@ -11,8 +11,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 import hu.ait.ourhouseroommateapp.R;
-import hu.ait.ourhouseroommateapp.ui.login_register.LoginOrRegisterActivity;
-import hu.ait.ourhouseroommateapp.ui.login_register.LoginRegisterGroups;
+import hu.ait.ourhouseroommateapp.login.LoginOrRegisterActivity;
+import hu.ait.ourhouseroommateapp.groups.LoginRegisterGroups;
 
 /**
  * Created by nasheyarahman on 5/8/17.
