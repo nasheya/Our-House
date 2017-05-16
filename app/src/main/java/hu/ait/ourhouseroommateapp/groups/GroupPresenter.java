@@ -1,5 +1,7 @@
 package hu.ait.ourhouseroommateapp.groups;
 
+import android.util.Log;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -9,9 +11,13 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.security.auth.callback.Callback;
+
 import hu.ait.ourhouseroommateapp.R;
+import hu.ait.ourhouseroommateapp.adapter.ExistingGroupAdapter;
 import hu.ait.ourhouseroommateapp.ui.Presenter;
 
 /**
@@ -19,10 +25,13 @@ import hu.ait.ourhouseroommateapp.ui.Presenter;
  */
 
 public class GroupPresenter extends Presenter<GroupScreen>{
-    DatabaseReference dtb;
+    private DatabaseReference dtb;
+
+    private String userId;
 
     public GroupPresenter(){
         dtb = FirebaseDatabase.getInstance().getReference();
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
     public void addGroupToFirebase(String groupID, String groupName, String groupCode){
@@ -34,7 +43,6 @@ public class GroupPresenter extends Presenter<GroupScreen>{
     }
 
     private void joinFirebaseGroup(String groupID){
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         dtb.child(GroupData.USERS_NODE).child(userId).child(GroupData.USERS_CURRENT_GROUP_NODE).setValue(groupID);
         dtb.child(GroupData.USERS_NODE).child(userId).child(GroupData.USER_GROUPS_NODE).child(groupID).setValue(true);
 
@@ -42,7 +50,6 @@ public class GroupPresenter extends Presenter<GroupScreen>{
     }
 
     private void addNodeToFirebase(String groupID, String groupName, String groupCode){
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         dtb.child(GroupData.USERS_NODE).child(userId).child(GroupData.USERS_CURRENT_GROUP_NODE).setValue(groupID);
         dtb.child(GroupData.USERS_NODE).child(userId).child(GroupData.USER_GROUPS_NODE).child(groupID).setValue(true);
 
@@ -93,5 +100,38 @@ public class GroupPresenter extends Presenter<GroupScreen>{
                 screen.postFailure();
             }
         });
+    }
+
+    public void getUserGroups(final ExistingGroupAdapter adapter){
+
+
+        dtb.child(GroupData.USERS_NODE).child(userId).child(GroupData.USER_GROUPS_NODE).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    List<String> groupsList = new ArrayList<String>();
+
+                    for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                        String tempItem = postSnapshot.getKey();
+                        groupsList.add(tempItem);
+                    }
+
+                    adapter.setExistingGroups(groupsList);
+                } else {
+                    screen.postFailure();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                screen.postFailure();
+            }
+        });
+    }
+
+    public void setAsCurrentUserGroup(String group){
+        dtb.child(GroupData.USERS_NODE).child(userId).child(GroupData.USERS_CURRENT_GROUP_NODE).setValue(group);
+
+        screen.navigateToMainScreen();
     }
 }

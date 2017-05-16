@@ -46,6 +46,7 @@
     <string name="bottom_nav_expenses">Expenses</string>
     <string name="bottom_nav_home">Home</string>
     <string name="issue_message">There has been an issue. Please try again in a bit.</string>
+    <string name="existing_groups">Existing Groups</string>
 
 
 </resources>

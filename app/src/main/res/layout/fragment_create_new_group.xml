@@ -12,9 +12,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="@dimen/layout_header"
         android:text="@string/create_new_group_title"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="@dimen/header_bottom_margin"
         android:layout_gravity="center_horizontal"/>
 
     <android.support.design.widget.TextInputLayout
@@ -61,7 +61,7 @@
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/header_bottom_margin"
         android:text="@string/action_create_group"
         android:textStyle="bold"
         android:textColor="#fff"
@@ -72,8 +72,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/create_group_message"
-        android:textSize="15sp"
-        android:layout_marginTop="15dp"
+        android:textSize="@dimen/message_text_size"
+        android:layout_marginTop="@dimen/header_bottom_margin"
         android:gravity="center"/>
 
 </LinearLayout>

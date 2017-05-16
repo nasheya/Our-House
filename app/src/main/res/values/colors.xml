@@ -11,6 +11,6 @@
     <color name="colorNavBarIcon">#52edbf</color>
     <color name="colorNavBarIcon2">#06d1bc</color>
     <color name="colorBluePrimary">#1d415e</color>
-    <color name="colorPrimaryDark2">#007e70</color>
-    <color name="colorPrimary2">#009e8d</color>
+    <color name="colorTealDark">#007e70</color>
+    <color name="colorTeal">#009e8d</color>
 </resources>
