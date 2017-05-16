@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -50,9 +51,12 @@ public class LoginPresenter extends Presenter<LoginScreen> {
 
                 if(task.isSuccessful()){
                     screen.postLoginSuccess();
-                } else {
-                    screen.postLoginFailure();
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                isNetworkException(e);
             }
         });
     }
@@ -77,7 +81,7 @@ public class LoginPresenter extends Presenter<LoginScreen> {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        screen.postLoginFailure();
+                        isNetworkException(e);
                     }
                 });
     }
@@ -96,5 +100,13 @@ public class LoginPresenter extends Presenter<LoginScreen> {
                         }
                     }
                 });
+    }
+
+    private void isNetworkException(Exception e){
+        if(e instanceof FirebaseNetworkException){
+            screen.postNetworkFailure();
+        } else {
+            screen.postLoginFailure();
+        }
     }
 }

@@ -5,6 +5,10 @@
         android:icon="@drawable/ic_info"
         android:title="@string/nav_about_our_house" />
 
+    <item android:id="@+id/action_group_info"
+        android:icon="@drawable/ic_group"
+        android:title="@string/nav_group_info" />
+
     <item android:id="@+id/action_manage"
         android:icon="@drawable/ic_swap"
         android:title="@string/nav_manage_groups" />

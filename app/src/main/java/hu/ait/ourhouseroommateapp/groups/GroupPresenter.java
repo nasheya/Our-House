@@ -9,6 +9,8 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.List;
+
 import hu.ait.ourhouseroommateapp.R;
 import hu.ait.ourhouseroommateapp.ui.Presenter;
 
@@ -27,8 +29,8 @@ public class GroupPresenter extends Presenter<GroupScreen>{
         transactionGroupCreate(groupID, groupName, groupCode);
     }
 
-    public void joinGroup(String groupID){
-
+    public void joinGroup(String groupID, String groupCode){
+        transactionGroupJoin(groupID, groupCode);
     }
 
     private void joinFirebaseGroup(String groupID){
@@ -49,50 +51,29 @@ public class GroupPresenter extends Presenter<GroupScreen>{
         dtb.child(GroupData.GROUPS_NODE).child(groupID).child(GroupData.GROUP_USERS_NODE).child(userId).setValue(true);
     }
 
-    private void transactionGroupJoin(){
-        //        //Ugly ass nesting, but this is to check the code and group ID match up correctly
-        if(cancel == false){
-            Log.d("TAG", dtb.child(GroupData.GROUPS_NODE).toString());
-            dtb.child(GroupData.GROUPS_NODE).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot snapshot) {
+    private void transactionGroupJoin(final String groupID, final String groupCode){
+        dtb.child(GroupData.GROUPS_NODE).child(groupID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String code = (String) snapshot.child(GroupData.GROUP_CODE_NODE).getValue();
 
-                    Log.d("TAG", snapshot.toString() +" FIRSTTTTT");
-                    //Log.d("TAG", snapshot.hasChild(groupID)+"");
-                    if (snapshot.hasChild(groupID)) {
-                        Log.d("TAG", snapshot.toString());
-                        Log.d("TAG", "I am here!!");
-                        //group name exists, let's check the group code now
-                        dtb.child(GroupData.GROUPS_NODE).child(groupID).child(GroupData.GROUP_CODE_NODE)
-                                .addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot snapshot) {
-                                String code = snapshot.getValue().toString();
-
-                                if (!groupCode.equals(code)) {
-
-                                } else {
-                                    etID.setError(null);
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-                                System.out.println(getString(R.string.error_heading) + databaseError.toString());
-                            }
-                        });
-
+                    if(code.equals(groupCode)){
+                        joinFirebaseGroup(groupID);
+                        screen.navigateToMainScreen();
                     } else {
-
+                        screen.highlightUniquenessProblem();
                     }
+                } else {
+                    screen.highlightUniquenessProblem();
                 }
+            }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                screen.postFailure();
+            }
+        });
     }
 
     private void transactionGroupCreate(final String groupID, final String groupName, final String groupCode) {
@@ -108,28 +89,9 @@ public class GroupPresenter extends Presenter<GroupScreen>{
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+                screen.postFailure();
+            }
         });
-
-//        dtb.child(GroupData.GROUPS_NODE).child(groupID).runTransaction(new Transaction.Handler() {
-//            @Override
-//            public Transaction.Result doTransaction(MutableData mutableData) {
-//                if (mutableData.getValue() == null) {
-//                    addNodeToFirebase(groupID, groupName, groupCode);
-//                    return Transaction.success(mutableData);
-//                }
-//
-//                return Transaction.abort();
-//            }
-//
-//            @Override
-//            public void onComplete(DatabaseError firebaseError, boolean commited, DataSnapshot dataSnapshot) {
-//                if (commited) {
-//                    screen.navigateToMainScreen();
-//                } else {
-//                    screen.highlightUniquenessProblem();
-//                }
-//            }
-//        });
     }
 }

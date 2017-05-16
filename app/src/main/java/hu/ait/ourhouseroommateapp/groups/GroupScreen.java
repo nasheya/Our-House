@@ -12,4 +12,6 @@ public interface GroupScreen {
     public void navigateToMainScreen();
 
     public void highlightUniquenessProblem();
+
+    public void postFailure();
 }

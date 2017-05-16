@@ -39,6 +39,13 @@
     <string name="invalid_group_name">This group name is not valid</string>
     <string name="invalid_group_combo_join">This ID and code combination is not recognized</string>
     <string name="error_heading">Error:</string>
+    <string name="nav_group_info">Current Group Info</string>
+    <string name="bottom_nav_whiteboard">Whiteboard</string>
+    <string name="bottom_nav_shopping_lists">Shopping Lists</string>
+    <string name="bottom_nav_chores">Chores</string>
+    <string name="bottom_nav_expenses">Expenses</string>
+    <string name="bottom_nav_home">Home</string>
+    <string name="issue_message">There has been an issue. Please try again in a bit.</string>
 
 
 </resources>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import hu.ait.ourhouseroommateapp.R;
 import hu.ait.ourhouseroommateapp.ui.MainActivity;
@@ -118,5 +119,10 @@ public class FragmentCreate extends Fragment implements GroupScreen{
         } else {
             return true;
         }
+    }
+
+    @Override
+    public void postFailure() {
+        Toast.makeText(getContext(), R.string.issue_message, Toast.LENGTH_LONG);
     }
 }

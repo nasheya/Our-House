@@ -52,7 +52,7 @@
         android:text="@string/action_join_group"
         android:textStyle="bold"
         android:textColor="#fff"
-        android:backgroundTint="@color/colorPrimary"/>
+        android:backgroundTint="@color/colorBluePrimary"/>
 
     <TextView
         android:layout_width="match_parent"
