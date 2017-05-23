@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 import hu.ait.ourhouseroommateapp.R;
+import hu.ait.ourhouseroommateapp.CurrentGroup;
 import hu.ait.ourhouseroommateapp.login.LoginOrRegisterActivity;
 import hu.ait.ourhouseroommateapp.groups.LoginRegisterGroups;
 import hu.ait.ourhouseroommateapp.main_functions.FragmentChores;
@@ -51,6 +52,8 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.action_logout) {
             FirebaseAuth.getInstance().signOut();
+
+            CurrentGroup.clearCurrentGroup();
 
             Intent loginRegister = new Intent(this, LoginOrRegisterActivity.class);
             loginRegister.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -108,7 +111,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
                 switch (item.getItemId()) {
                     case R.id.navHome:
                         fragment = new FragmentHome();
-                        title = getString(R.string.bottom_nav_home);
+                        title = getString(R.string.house_rules_title);
                         break;
                     case R.id.navExpenses:
                         fragment = new FragmentExpenses();

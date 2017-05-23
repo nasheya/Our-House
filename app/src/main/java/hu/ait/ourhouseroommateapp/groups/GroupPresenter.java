@@ -1,22 +1,18 @@
 package hu.ait.ourhouseroommateapp.groups;
 
-import android.util.Log;
+import android.content.Context;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.MutableData;
-import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.callback.Callback;
-
-import hu.ait.ourhouseroommateapp.R;
+import hu.ait.ourhouseroommateapp.CurrentGroup;
 import hu.ait.ourhouseroommateapp.adapter.ExistingGroupAdapter;
 import hu.ait.ourhouseroommateapp.ui.Presenter;
 
@@ -35,10 +31,12 @@ public class GroupPresenter extends Presenter<GroupScreen>{
     }
 
     public void addGroupToFirebase(String groupID, String groupName, String groupCode){
+        CurrentGroup.addGroupToSP(groupID);
         transactionGroupCreate(groupID, groupName, groupCode);
     }
 
     public void joinGroup(String groupID, String groupCode){
+        CurrentGroup.addGroupToSP(groupID);
         transactionGroupJoin(groupID, groupCode);
     }
 
@@ -103,8 +101,6 @@ public class GroupPresenter extends Presenter<GroupScreen>{
     }
 
     public void getUserGroups(final ExistingGroupAdapter adapter){
-
-
         dtb.child(GroupData.USERS_NODE).child(userId).child(GroupData.USER_GROUPS_NODE).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -131,7 +127,6 @@ public class GroupPresenter extends Presenter<GroupScreen>{
 
     public void setAsCurrentUserGroup(String group){
         dtb.child(GroupData.USERS_NODE).child(userId).child(GroupData.USERS_CURRENT_GROUP_NODE).setValue(group);
-
         screen.navigateToMainScreen();
     }
 }

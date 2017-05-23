@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import hu.ait.ourhouseroommateapp.CurrentGroup;
 import hu.ait.ourhouseroommateapp.R;
 import hu.ait.ourhouseroommateapp.login.LoginPresenter;
 import hu.ait.ourhouseroommateapp.login.LoginScreen;
@@ -54,8 +55,15 @@ public class SplashScreen extends AppCompatActivity implements LoginScreen{
     @Override
     public void postLoginSuccess(){
         Intent main = new Intent(this, MainActivity.class);
-        startActivity(main);
-        finish();
+
+        if(CurrentGroup.getCurrentGroup() == null){
+            CurrentGroup.retrieveGroupId(main);
+        } else {
+            startActivity(main);
+            finish();
+        }
+//        startActivity(main);
+//        finish();
     }
 
     @Override

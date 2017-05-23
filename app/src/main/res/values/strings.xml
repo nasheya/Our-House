@@ -9,6 +9,7 @@
     <string name="error_field_required">This field is required</string>
     <string name="error_invalid_combination">The email and password combination is not recognized</string>
     <string name="error_network">There has been a network issue. Please try again.</string>
+    <string name="error_general">There has been an error. Please try again in a bit.</string>
     <string name="error_exists">This email already exists in the system</string>
     <string name="error_password">Password must be at least 6 characters long</string>
 
@@ -47,6 +48,18 @@
     <string name="bottom_nav_home">Home</string>
     <string name="issue_message">There has been an issue. Please try again in a bit.</string>
     <string name="existing_groups">Existing Groups</string>
+    <string name="title_of_note">Title of Note</string>
+    <string name="body_of_note">Body of Note</string>
+    <string name="add_note_title">New Whiteboard Note</string>
+    <string name="add_note_ok">Add Note</string>
+    <string name="cancel_dialog">Cancel</string>
+    <string name="edit_board_item_title">Edit Whiteboard Item</string>
+    <string name="edit_item_ok">Edit Item</string>
+    <string name="add_item_okay">Add Item</string>
+    <string name="add_house_rule_title">Add House Rule</string>
+    <string name="house_rules_title">House Rules</string>
+    <string name="house_rule_add_hint">Enter house rule here</string>
+    <string name="view_your_expenses">View Your Expenses</string>
 
 
 </resources>

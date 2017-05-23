@@ -12,6 +12,7 @@ import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.List;
 
+import hu.ait.ourhouseroommateapp.CurrentGroup;
 import hu.ait.ourhouseroommateapp.R;
 import hu.ait.ourhouseroommateapp.groups.GroupPresenter;
 import hu.ait.ourhouseroommateapp.login.LoginPresenter;
@@ -62,6 +63,7 @@ public class ExistingGroupAdapter extends RecyclerView.Adapter<ExistingGroupAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CurrentGroup.addGroupToSP(existingGroups.get(holder.getAdapterPosition()));
                 groupPresenter.setAsCurrentUserGroup(existingGroups.get(holder.getAdapterPosition()));
             }
         });

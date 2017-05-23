@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import hu.ait.ourhouseroommateapp.CurrentGroup;
 import hu.ait.ourhouseroommateapp.R;
 import hu.ait.ourhouseroommateapp.login.LoginPresenter;
 import hu.ait.ourhouseroommateapp.login.LoginScreen;
@@ -131,6 +132,8 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen{
     }
 
     public void navigateToMainScreen() {
+        CurrentGroup.retrieveGroupId();
+
         Intent main = new Intent(this, MainActivity.class);
         main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(main);

@@ -7,13 +7,20 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import hu.ait.ourhouseroommateapp.main_data.Expense;
+import hu.ait.ourhouseroommateapp.main_functions.MainNetworkFunctionality;
+import hu.ait.ourhouseroommateapp.touch.TouchHelperInterface;
 
 /**
  * Created by nasheyarahman on 5/16/17.
  */
 
-public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ViewHolder> {
+public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ViewHolder> implements TouchHelperInterface{
     private List<Expense> expenseList;
+    MainNetworkFunctionality network;
+
+    public ExpenseAdapter(MainNetworkFunctionality network){
+        this.network = network;
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public ViewHolder(View itemView) {
@@ -34,5 +41,10 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ViewHold
     @Override
     public int getItemCount() {
         return expenseList.size();
+    }
+
+    @Override
+    public void onItemDismiss(int position) {
+
     }
 }

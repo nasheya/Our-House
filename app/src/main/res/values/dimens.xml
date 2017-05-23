@@ -6,10 +6,15 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="list_item_text_size">17sp</dimen>
+    <dimen name="list_item_text_size">18sp</dimen>
     <dimen name="layout_header">20sp</dimen>
     <dimen name="list_group_margin">35dp</dimen>
     <dimen name="header_bottom_margin">15dp</dimen>
     <dimen name="message_text_size">15sp</dimen>
     <dimen name="icon_size">25dp</dimen>
+    <dimen name="board_note_header">20sp</dimen>
+    <dimen name="board_note_body">18sp</dimen>
+    <dimen name="margin_text_edit">25dp</dimen>
+    <dimen name="house_rules_item_padding">15dp</dimen>
+    <dimen name="margin_between_text">10dp</dimen>
 </resources>
